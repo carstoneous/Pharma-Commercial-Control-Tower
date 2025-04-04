@@ -4,6 +4,9 @@ Welcome to the **Pharma Commercial Control Tower** — a cutting-edge, data-driv
 
 Built with **HTML**, **CSS**, and **JavaScript**, this tool delivers real-time insights into pharmaceutical sales, market intelligence, customer engagement, AI-driven recommendations, and operational performance — all powered by synthetic data.
 
+### Demo
+![Have a look at an example here](https://carstoneous.github.io/Pharma-Commercial-Control-Tower/)
+
 ---
 
 ## ✨ Overview
@@ -152,13 +155,16 @@ Whether you're a pharma executive, data analyst, or tech enthusiast, this dashbo
 > Upload screenshots in your repo and link them like this:
 
 ### 💰 Sales Performance
-![Sales Chart](screenshots/sales-performance.png)
+![Sales Chart](screenshots/Sales_Performance_1.png)
+![Market Intelligence](screenshots/Market_intelligence_2.png)
+![Customer Engagement](screenshots/Customer_Engagement_3.png)
 
 ### 🧠 AI Recommendations
-![AI Panel](screenshots/ai-panel.png)
+![AI Panel](screenshots/Next_Best_Decision_4.png)
+![AI Panel](screenshots/Next_Best_Decision_5.png)
 
-### 🌐 Market Heatmap
-![Market Heatmap](screenshots/market-heatmap.png)
+### 🌐 Operations
+![Market Heatmap](screenshots/Operations_6.png)
 
 ---
 
