@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pharma Commercial Control Tower</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@1.0.2"></script>
+</head>
+<body>
+  <!-- Main Container -->
+  <div class="container">
+    <!-- Header -->
+    <header class="fade-in">
+      <h1>Pharma Commercial Control Tower</h1>
+      <p class="subtitle fade-in-delay">Real-time insights for strategic decisions (Inspired by Deloitte project)</p>
+    </header>
+    
+    <!-- Error Message -->
+    <div class="error-message" style="display: none; color: var(--danger); text-align: center; padding: 20px;"></div>
+    
+    <!-- Sales Performance Section -->
+    <section id="sales-section" class="fade-in">
+      <h2>Sales Performance</h2>
+      <div class="card">
+        <!-- Region Filters -->
+        <div class="filters">
+          <button class="filter-option region-filter active" data-region="US">US</button>
+          <button class="filter-option region-filter active" data-region="EU">EU</button>
+          <button class="filter-option region-filter active" data-region="Asia">Asia</button>
+        </div>
+        
+        <!-- Sales Chart -->
+        <div class="chart-container">
+          <div class="loader"></div>
+          <canvas id="sales-chart"></canvas>
+        </div>
+        
+        <!-- Sales Stats -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <span class="stat-value" id="market-share">--</span>
+            <span class="stat-label">Market Share</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-value" id="direct-conversion">--</span>
+            <span class="stat-label">Direct Conversion</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-value" id="digital-conversion">--</span>
+            <span class="stat-label">Digital Conversion</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-value" id="forecast-accuracy">--</span>
+            <span class="stat-label">Forecast Accuracy</span>
+          </div>
+        </div>
+        
+        <!-- Market Segment Breakdown -->
+        <div class="segment-breakdown">
+          <h3>Market Segment Breakdown</h3>
+          <div class="chart-container" style="height: 250px;">
+            <canvas id="segment-chart"></canvas>
+          </div>
+        </div>
+        
+        <!-- Volume Growth Trend -->
+        <div class="volume-growth">
+          <div class="volume-stats">
+            <div class="stat-card">
+              <span class="stat-label">Volume Growth</span>
+              <span class="stat-value" id="volume-growth">--</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-label">New Prescribers</span>
+              <span class="stat-value" id="new-prescribers">--</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Market Intelligence Section -->
+    <section id="market-section" class="fade-in">
+      <h2>Market Intelligence</h2>
+      <div class="card">
+        <p>Market Share vs. Competitor Pricing (hover for details)</p>
+        
+        <!-- Heatmap -->
+        <div id="market-heatmap" class="heatmap">
+          <div class="loader"></div>
+        </div>
+        
+        <!-- Market Stats -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <span class="stat-value" id="us-penetration">--</span>
+            <span class="stat-label">US Penetration</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-value" id="eu-penetration">--</span>
+            <span class="stat-label">EU Penetration</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-value" id="asia-penetration">--</span>
+            <span class="stat-label">Asia Penetration</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-value" id="recent-launches">--</span>
+            <span class="stat-label">Recent Launches</span>
+          </div>
+        </div>
+        
+        <!-- Competitor Price Trends -->
+        <div class="competitor-analysis">
+          <h3>Competitor Price Trends</h3>
+          <div class="chart-container">
+            <canvas id="competitor-price-chart"></canvas>
+          </div>
+        </div>
+        
+        <!-- Patient Share & Market Trends -->
+        <div class="market-trends-container">
+          <div class="market-trend-panel">
+            <h3>Patient Share Trend</h3>
+            <div class="chart-container" style="height: 200px;">
+              <canvas id="patient-share-chart"></canvas>
+            </div>
+          </div>
+          <div class="market-trend-panel">
+            <h3>Market Growth & Seasonality</h3>
+            <div class="chart-container" style="height: 200px;">
+              <canvas id="market-trends-chart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Customer Engagement Section -->
+    <section id="engagement-section" class="fade-in">
+      <h2>Customer Engagement</h2>
+      <div class="card">
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Region</th>
+                <th>HCP Interactions</th>
+                <th>Email Open Rate</th>
+                <th>NPS</th>
+                <th>Click-Through Rate</th>
+                <th>Social Engagement</th>
+              </tr>
+            </thead>
+            <tbody id="engagement-table-body">
+              <tr>
+                <td colspan="6">
+                  <div class="loader"></div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        <!-- HCP Segmentation -->
+        <div class="engagement-charts-container">
+          <div class="engagement-chart-panel">
+            <h3>HCP Segmentation</h3>
+            <div class="chart-container" style="height: 200px;">
+              <canvas id="hcp-segmentation-chart"></canvas>
+            </div>
+          </div>
+          <div class="engagement-chart-panel">
+            <h3>Channel Engagement</h3>
+            <div class="chart-container" style="height: 200px;">
+              <canvas id="channel-engagement-chart"></canvas>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Content Performance -->
+        <div class="content-performance">
+          <h3>Content Performance</h3>
+          <div class="chart-container" style="height: 250px;">
+            <canvas id="content-performance-chart"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- AI-Driven Insights Section -->
+    <section id="ai-section" class="fade-in">
+      <h2>Best Next Move</h2>
+      <div class="card">
+        <div class="ai-panel">
+          <!-- AI Recommendation Selector -->
+          <select id="action-select" class="action-select">
+            <option value="0">Loading recommendations...</option>
+          </select>
+          
+          <!-- Recommendation Display -->
+          <div class="ai-recommendation">
+            <p>AI Confidence</p>
+            <div class="confidence-score" id="confidence-score">--</div>
+            <p>Estimated Impact</p>
+            <div class="impact-value" id="impact-value">--</div>
+            
+            <div class="action-details-container">
+              <div class="action-detail-row">
+                <span class="action-detail-label">Time to Realize:</span>
+                <span class="action-detail-value" id="time-to-realize">--</span>
+              </div>
+              <div class="action-detail-row">
+                <span class="action-detail-label">Implementation:</span>
+                <span class="action-detail-value implementation-tag" id="implementation-complexity">--</span>
+              </div>
+              <div class="action-details-text">
+                <p id="action-details">--</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- AI Stats -->
+          <div class="stats-grid">
+            <div class="stat-card">
+              <span class="stat-label">Baseline Forecast</span>
+              <span class="stat-value" id="baseline-value">--</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-label">AI Prediction</span>
+              <span class="stat-value" id="predicted-value">--</span>
+              <span class="confidence-interval" id="confidence-interval">--</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-label">Best Case</span>
+              <span class="stat-value" id="best-case-value">--</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-label">Worst Case</span>
+              <span class="stat-value" id="worst-case-value">--</span>
+            </div>
+          </div>
+          
+          <!-- Pricing Impact -->
+          <h3>Pricing Strategy</h3>
+          <div class="stats-grid">
+            <div class="stat-card">
+              <span class="stat-label">Current Price</span>
+              <span class="stat-value" id="current-price">--</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-label">Suggested Price</span>
+              <span class="stat-value" id="suggested-price">--</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-label">Margin Impact</span>
+              <span class="stat-value" id="margin-impact" style="color: var(--success);">--</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-label">Volume Impact</span>
+              <span class="stat-value" id="volume-impact" style="color: var(--success);">--</span>
+            </div>
+          </div>
+          
+          <!-- Risk Analysis -->
+          <h3>Risk Analysis</h3>
+          <div id="risk-analysis" class="risk-analysis-container">
+            <!-- Risk cards will be inserted here -->
+          </div>
+          
+          <!-- Segment Opportunities -->
+          <h3>Segment Opportunities</h3>
+          <div id="segment-opportunities" class="segment-opportunities-container">
+            <!-- Segment cards will be inserted here -->
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Operations Section -->
+    <section id="operations-section" class="fade-in">
+      <h2>Operations</h2>
+      <div class="card">
+        <div class="chart-container">
+          <h3>Supply Chain Performance</h3>
+          <canvas id="supply-chain-chart"></canvas>
+        </div>
+        
+        <div class="operations-charts-container">
+          <div class="operations-chart-panel">
+            <h3>Quality Metrics</h3>
+            <div class="chart-container" style="height: 250px;">
+              <canvas id="quality-metrics-chart"></canvas>
+            </div>
+          </div>
+          <div class="operations-chart-panel">
+            <h3>Distribution Network</h3>
+            <div class="chart-container" style="height: 250px;">
+              <canvas id="distribution-network-chart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer style="text-align: center; margin-top: 40px; padding: 20px; opacity: 0.7;">
+      <p>Created by Carsten Ludwig | Inspired by Deloitte Commercial Control Tower Project</p>
+      <p>Built with HTML, CSS, and JavaScript | Using synthetic data</p>
+    </footer>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html> 
