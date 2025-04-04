@@ -1,6 +1,6 @@
 # Pharma Commercial Control Tower
 
-Welcome to the **Pharma Commercial Control Tower** — a cutting-edge, data-driven dashboard inspired by Deloitte's commercial analytics projects and infused with a sleek, SpaceX/X.com-inspired dark theme with neon accents.
+Welcome to the **Pharma Commercial Control Tower** — a cutting-edge, data-driven dashboard for commercial analytics projects and infused with a sleek, dark theme with neon accents.
 
 Built with **HTML**, **CSS**, and **JavaScript**, this tool delivers real-time insights into pharmaceutical sales, market intelligence, customer engagement, AI-driven recommendations, and operational performance — all powered by synthetic data.
 
@@ -159,15 +159,6 @@ Whether you're a pharma executive, data analyst, or tech enthusiast, this dashbo
 
 ### 🌐 Market Heatmap
 ![Market Heatmap](screenshots/market-heatmap.png)
-
----
-
-## 🧠 Inspiration
-
-This project is inspired by:
-
-- **Deloitte's Commercial Control Tower** — Real-world pharma analytics framework  
-- **SpaceX & X.com Design Language** — Bold, minimalist UI with futuristic flair  
 
 ---
 
